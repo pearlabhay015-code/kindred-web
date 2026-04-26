@@ -11,8 +11,8 @@
 ═══════════════════════════════════════ */
 
 @theme inline {
-  --font-display: 'Syne', 'Segoe UI', sans-serif;
-  --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+  --font-display: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --font-body: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
   --radius-sm: 12px;
   --radius-md: 20px;
@@ -138,7 +138,7 @@ html.theme-switching, html.theme-switching *, html.theme-switching *::before, ht
 @layer base {
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
   * { -webkit-tap-highlight-color: transparent; }
-  html { scroll-behavior: smooth; }
+  html { scroll-behavior: smooth; font-size: 14px; transition: font-size .2s ease; }
   body {
     font-family: var(--font-body);
     background: var(--nm-bg);
@@ -146,6 +146,7 @@ html.theme-switching, html.theme-switching *, html.theme-switching *::before, ht
     transition: background .4s, color .4s;
     overflow-x: hidden;
     line-height: 1.55;
+    font-size: 0.92rem;
   }
   ::-webkit-scrollbar { width: 6px; height: 6px; }
   ::-webkit-scrollbar-track { background: var(--nm-bg); }
@@ -306,7 +307,8 @@ h1, h2, h3, h4, .font-display { font-family: var(--font-display); }
   html { scroll-behavior: auto; }
 }
 
-/* Larger text utility (a11y body font-size cycle) */
-html[data-fs="1"] body { font-size: 1.06rem; }
-html[data-fs="2"] body { font-size: 1.14rem; }
-html[data-fs="3"] body { font-size: 1.22rem; }
+/* Larger text utility (a11y) — scales html root so all rem-based sizes grow */
+html[data-fs="0"] { font-size: 14px; }
+html[data-fs="1"] { font-size: 15.5px; }
+html[data-fs="2"] { font-size: 17px; }
+html[data-fs="3"] { font-size: 18.5px; }
