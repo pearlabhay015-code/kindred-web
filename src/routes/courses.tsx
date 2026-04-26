@@ -59,19 +59,28 @@ function CoursesPage() {
               className="w-full bg-transparent px-5 py-3 outline-none text-[var(--tx-primary)]"
             />
           </div>
-          <div className="nm-inset-sm rounded-full">
+          <div className="nm-inset-sm rounded-full relative">
             <label htmlFor="course-school" className="sr-only">Filter by school</label>
             <select
               id="course-school"
               value={schoolFilter}
               onChange={(e) => setSchoolFilter(e.target.value)}
-              className="w-full bg-transparent px-5 py-3 outline-none text-[var(--tx-primary)]"
+              className="cusb-select w-full appearance-none bg-transparent pl-5 pr-12 py-3 outline-none text-[var(--tx-primary)] text-sm font-medium cursor-pointer rounded-full"
             >
               <option value="all">All Schools</option>
               {data.schools.map((s) => (
                 <option key={s.slug} value={s.slug}>{s.name}</option>
               ))}
             </select>
+            <svg
+              aria-hidden="true"
+              width="14" height="14" viewBox="0 0 24 24"
+              fill="none" stroke="currentColor" strokeWidth="2.5"
+              strokeLinecap="round" strokeLinejoin="round"
+              className="pointer-events-none absolute right-5 top-1/2 -translate-y-1/2 text-[var(--acc)]"
+            >
+              <polyline points="6 9 12 15 18 9" />
+            </svg>
           </div>
         </div>
 
