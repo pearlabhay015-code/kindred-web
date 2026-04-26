@@ -312,3 +312,25 @@ html[data-fs="0"] { font-size: 14px; }
 html[data-fs="1"] { font-size: 15.5px; }
 html[data-fs="2"] { font-size: 17px; }
 html[data-fs="3"] { font-size: 18.5px; }
+
+/* ── Themed native <select> dropdown ── */
+.cusb-select {
+  font-family: var(--font-body);
+  color: var(--tx-primary);
+  /* Hide native arrow (Firefox) */
+  -moz-appearance: none;
+  background-image: none;
+}
+.cusb-select::-ms-expand { display: none; }
+.cusb-select option,
+.cusb-select optgroup {
+  background-color: var(--nm-bg-sec);
+  color: var(--tx-primary);
+  font-family: var(--font-body);
+  padding: 8px 12px;
+}
+.cusb-select option:checked,
+.cusb-select option:hover {
+  background: linear-gradient(var(--acc), var(--acc));
+  color: #fff;
+}
