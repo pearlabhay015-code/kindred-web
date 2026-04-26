@@ -9,38 +9,558 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as WebmailRouteImport } from './routes/webmail'
+import { Route as StudentsRouteImport } from './routes/students'
+import { Route as ScholarshipRouteImport } from './routes/scholarship'
+import { Route as ResultsRouteImport } from './routes/results'
+import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PyqsRouteImport } from './routes/pyqs'
+import { Route as ProspectusRouteImport } from './routes/prospectus'
+import { Route as PlacementsRouteImport } from './routes/placements'
+import { Route as NssNccRouteImport } from './routes/nss-ncc'
+import { Route as NoticesRouteImport } from './routes/notices'
+import { Route as LoginRouteImport } from './routes/login'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as HostelsRouteImport } from './routes/hostels'
+import { Route as ExamScheduleRouteImport } from './routes/exam-schedule'
+import { Route as DownloadsRouteImport } from './routes/downloads'
+import { Route as CoursesRouteImport } from './routes/courses'
+import { Route as ConvocationRouteImport } from './routes/convocation'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CampusRouteImport } from './routes/campus'
+import { Route as AntiRaggingRouteImport } from './routes/anti-ragging'
+import { Route as AlumniRouteImport } from './routes/alumni'
+import { Route as AdmissionsRouteImport } from './routes/admissions'
+import { Route as AdministrationRouteImport } from './routes/administration'
+import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoursesTeacherEduRouteImport } from './routes/courses.teacher-edu'
+import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
+import { Route as CampusSlugRouteImport } from './routes/campus.$slug'
 
+const WebmailRoute = WebmailRouteImport.update({
+  id: '/webmail',
+  path: '/webmail',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const StudentsRoute = StudentsRouteImport.update({
+  id: '/students',
+  path: '/students',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ScholarshipRoute = ScholarshipRouteImport.update({
+  id: '/scholarship',
+  path: '/scholarship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PyqsRoute = PyqsRouteImport.update({
+  id: '/pyqs',
+  path: '/pyqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ProspectusRoute = ProspectusRouteImport.update({
+  id: '/prospectus',
+  path: '/prospectus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlacementsRoute = PlacementsRouteImport.update({
+  id: '/placements',
+  path: '/placements',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NssNccRoute = NssNccRouteImport.update({
+  id: '/nss-ncc',
+  path: '/nss-ncc',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NoticesRoute = NoticesRouteImport.update({
+  id: '/notices',
+  path: '/notices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostelsRoute = HostelsRouteImport.update({
+  id: '/hostels',
+  path: '/hostels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamScheduleRoute = ExamScheduleRouteImport.update({
+  id: '/exam-schedule',
+  path: '/exam-schedule',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const DownloadsRoute = DownloadsRouteImport.update({
+  id: '/downloads',
+  path: '/downloads',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CoursesRoute = CoursesRouteImport.update({
+  id: '/courses',
+  path: '/courses',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ConvocationRoute = ConvocationRouteImport.update({
+  id: '/convocation',
+  path: '/convocation',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CampusRoute = CampusRouteImport.update({
+  id: '/campus',
+  path: '/campus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AntiRaggingRoute = AntiRaggingRouteImport.update({
+  id: '/anti-ragging',
+  path: '/anti-ragging',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdmissionsRoute = AdmissionsRouteImport.update({
+  id: '/admissions',
+  path: '/admissions',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AdministrationRoute = AdministrationRouteImport.update({
+  id: '/administration',
+  path: '/administration',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AboutRoute = AboutRouteImport.update({
+  id: '/about',
+  path: '/about',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesTeacherEduRoute = CoursesTeacherEduRouteImport.update({
+  id: '/teacher-edu',
+  path: '/teacher-edu',
+  getParentRoute: () => CoursesRoute,
+} as any)
+const CoursesSlugRoute = CoursesSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CoursesRoute,
+} as any)
+const CampusSlugRoute = CampusSlugRouteImport.update({
+  id: '/$slug',
+  path: '/$slug',
+  getParentRoute: () => CampusRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/administration': typeof AdministrationRoute
+  '/admissions': typeof AdmissionsRoute
+  '/alumni': typeof AlumniRoute
+  '/anti-ragging': typeof AntiRaggingRoute
+  '/campus': typeof CampusRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/convocation': typeof ConvocationRoute
+  '/courses': typeof CoursesRouteWithChildren
+  '/downloads': typeof DownloadsRoute
+  '/exam-schedule': typeof ExamScheduleRoute
+  '/hostels': typeof HostelsRoute
+  '/library': typeof LibraryRoute
+  '/login': typeof LoginRoute
+  '/notices': typeof NoticesRoute
+  '/nss-ncc': typeof NssNccRoute
+  '/placements': typeof PlacementsRoute
+  '/prospectus': typeof ProspectusRoute
+  '/pyqs': typeof PyqsRoute
+  '/register': typeof RegisterRoute
+  '/results': typeof ResultsRoute
+  '/scholarship': typeof ScholarshipRoute
+  '/students': typeof StudentsRoute
+  '/webmail': typeof WebmailRoute
+  '/campus/$slug': typeof CampusSlugRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/teacher-edu': typeof CoursesTeacherEduRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/administration': typeof AdministrationRoute
+  '/admissions': typeof AdmissionsRoute
+  '/alumni': typeof AlumniRoute
+  '/anti-ragging': typeof AntiRaggingRoute
+  '/campus': typeof CampusRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/convocation': typeof ConvocationRoute
+  '/courses': typeof CoursesRouteWithChildren
+  '/downloads': typeof DownloadsRoute
+  '/exam-schedule': typeof ExamScheduleRoute
+  '/hostels': typeof HostelsRoute
+  '/library': typeof LibraryRoute
+  '/login': typeof LoginRoute
+  '/notices': typeof NoticesRoute
+  '/nss-ncc': typeof NssNccRoute
+  '/placements': typeof PlacementsRoute
+  '/prospectus': typeof ProspectusRoute
+  '/pyqs': typeof PyqsRoute
+  '/register': typeof RegisterRoute
+  '/results': typeof ResultsRoute
+  '/scholarship': typeof ScholarshipRoute
+  '/students': typeof StudentsRoute
+  '/webmail': typeof WebmailRoute
+  '/campus/$slug': typeof CampusSlugRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/teacher-edu': typeof CoursesTeacherEduRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/about': typeof AboutRoute
+  '/administration': typeof AdministrationRoute
+  '/admissions': typeof AdmissionsRoute
+  '/alumni': typeof AlumniRoute
+  '/anti-ragging': typeof AntiRaggingRoute
+  '/campus': typeof CampusRouteWithChildren
+  '/contact': typeof ContactRoute
+  '/convocation': typeof ConvocationRoute
+  '/courses': typeof CoursesRouteWithChildren
+  '/downloads': typeof DownloadsRoute
+  '/exam-schedule': typeof ExamScheduleRoute
+  '/hostels': typeof HostelsRoute
+  '/library': typeof LibraryRoute
+  '/login': typeof LoginRoute
+  '/notices': typeof NoticesRoute
+  '/nss-ncc': typeof NssNccRoute
+  '/placements': typeof PlacementsRoute
+  '/prospectus': typeof ProspectusRoute
+  '/pyqs': typeof PyqsRoute
+  '/register': typeof RegisterRoute
+  '/results': typeof ResultsRoute
+  '/scholarship': typeof ScholarshipRoute
+  '/students': typeof StudentsRoute
+  '/webmail': typeof WebmailRoute
+  '/campus/$slug': typeof CampusSlugRoute
+  '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/teacher-edu': typeof CoursesTeacherEduRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths:
+    | '/'
+    | '/about'
+    | '/administration'
+    | '/admissions'
+    | '/alumni'
+    | '/anti-ragging'
+    | '/campus'
+    | '/contact'
+    | '/convocation'
+    | '/courses'
+    | '/downloads'
+    | '/exam-schedule'
+    | '/hostels'
+    | '/library'
+    | '/login'
+    | '/notices'
+    | '/nss-ncc'
+    | '/placements'
+    | '/prospectus'
+    | '/pyqs'
+    | '/register'
+    | '/results'
+    | '/scholarship'
+    | '/students'
+    | '/webmail'
+    | '/campus/$slug'
+    | '/courses/$slug'
+    | '/courses/teacher-edu'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to:
+    | '/'
+    | '/about'
+    | '/administration'
+    | '/admissions'
+    | '/alumni'
+    | '/anti-ragging'
+    | '/campus'
+    | '/contact'
+    | '/convocation'
+    | '/courses'
+    | '/downloads'
+    | '/exam-schedule'
+    | '/hostels'
+    | '/library'
+    | '/login'
+    | '/notices'
+    | '/nss-ncc'
+    | '/placements'
+    | '/prospectus'
+    | '/pyqs'
+    | '/register'
+    | '/results'
+    | '/scholarship'
+    | '/students'
+    | '/webmail'
+    | '/campus/$slug'
+    | '/courses/$slug'
+    | '/courses/teacher-edu'
+  id:
+    | '__root__'
+    | '/'
+    | '/about'
+    | '/administration'
+    | '/admissions'
+    | '/alumni'
+    | '/anti-ragging'
+    | '/campus'
+    | '/contact'
+    | '/convocation'
+    | '/courses'
+    | '/downloads'
+    | '/exam-schedule'
+    | '/hostels'
+    | '/library'
+    | '/login'
+    | '/notices'
+    | '/nss-ncc'
+    | '/placements'
+    | '/prospectus'
+    | '/pyqs'
+    | '/register'
+    | '/results'
+    | '/scholarship'
+    | '/students'
+    | '/webmail'
+    | '/campus/$slug'
+    | '/courses/$slug'
+    | '/courses/teacher-edu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  AboutRoute: typeof AboutRoute
+  AdministrationRoute: typeof AdministrationRoute
+  AdmissionsRoute: typeof AdmissionsRoute
+  AlumniRoute: typeof AlumniRoute
+  AntiRaggingRoute: typeof AntiRaggingRoute
+  CampusRoute: typeof CampusRouteWithChildren
+  ContactRoute: typeof ContactRoute
+  ConvocationRoute: typeof ConvocationRoute
+  CoursesRoute: typeof CoursesRouteWithChildren
+  DownloadsRoute: typeof DownloadsRoute
+  ExamScheduleRoute: typeof ExamScheduleRoute
+  HostelsRoute: typeof HostelsRoute
+  LibraryRoute: typeof LibraryRoute
+  LoginRoute: typeof LoginRoute
+  NoticesRoute: typeof NoticesRoute
+  NssNccRoute: typeof NssNccRoute
+  PlacementsRoute: typeof PlacementsRoute
+  ProspectusRoute: typeof ProspectusRoute
+  PyqsRoute: typeof PyqsRoute
+  RegisterRoute: typeof RegisterRoute
+  ResultsRoute: typeof ResultsRoute
+  ScholarshipRoute: typeof ScholarshipRoute
+  StudentsRoute: typeof StudentsRoute
+  WebmailRoute: typeof WebmailRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/webmail': {
+      id: '/webmail'
+      path: '/webmail'
+      fullPath: '/webmail'
+      preLoaderRoute: typeof WebmailRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/students': {
+      id: '/students'
+      path: '/students'
+      fullPath: '/students'
+      preLoaderRoute: typeof StudentsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/scholarship': {
+      id: '/scholarship'
+      path: '/scholarship'
+      fullPath: '/scholarship'
+      preLoaderRoute: typeof ScholarshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pyqs': {
+      id: '/pyqs'
+      path: '/pyqs'
+      fullPath: '/pyqs'
+      preLoaderRoute: typeof PyqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/prospectus': {
+      id: '/prospectus'
+      path: '/prospectus'
+      fullPath: '/prospectus'
+      preLoaderRoute: typeof ProspectusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/placements': {
+      id: '/placements'
+      path: '/placements'
+      fullPath: '/placements'
+      preLoaderRoute: typeof PlacementsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nss-ncc': {
+      id: '/nss-ncc'
+      path: '/nss-ncc'
+      fullPath: '/nss-ncc'
+      preLoaderRoute: typeof NssNccRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notices': {
+      id: '/notices'
+      path: '/notices'
+      fullPath: '/notices'
+      preLoaderRoute: typeof NoticesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hostels': {
+      id: '/hostels'
+      path: '/hostels'
+      fullPath: '/hostels'
+      preLoaderRoute: typeof HostelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exam-schedule': {
+      id: '/exam-schedule'
+      path: '/exam-schedule'
+      fullPath: '/exam-schedule'
+      preLoaderRoute: typeof ExamScheduleRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/downloads': {
+      id: '/downloads'
+      path: '/downloads'
+      fullPath: '/downloads'
+      preLoaderRoute: typeof DownloadsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/courses': {
+      id: '/courses'
+      path: '/courses'
+      fullPath: '/courses'
+      preLoaderRoute: typeof CoursesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/convocation': {
+      id: '/convocation'
+      path: '/convocation'
+      fullPath: '/convocation'
+      preLoaderRoute: typeof ConvocationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/campus': {
+      id: '/campus'
+      path: '/campus'
+      fullPath: '/campus'
+      preLoaderRoute: typeof CampusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anti-ragging': {
+      id: '/anti-ragging'
+      path: '/anti-ragging'
+      fullPath: '/anti-ragging'
+      preLoaderRoute: typeof AntiRaggingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/admissions': {
+      id: '/admissions'
+      path: '/admissions'
+      fullPath: '/admissions'
+      preLoaderRoute: typeof AdmissionsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/administration': {
+      id: '/administration'
+      path: '/administration'
+      fullPath: '/administration'
+      preLoaderRoute: typeof AdministrationRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/about': {
+      id: '/about'
+      path: '/about'
+      fullPath: '/about'
+      preLoaderRoute: typeof AboutRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,12 +568,90 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/courses/teacher-edu': {
+      id: '/courses/teacher-edu'
+      path: '/teacher-edu'
+      fullPath: '/courses/teacher-edu'
+      preLoaderRoute: typeof CoursesTeacherEduRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/courses/$slug': {
+      id: '/courses/$slug'
+      path: '/$slug'
+      fullPath: '/courses/$slug'
+      preLoaderRoute: typeof CoursesSlugRouteImport
+      parentRoute: typeof CoursesRoute
+    }
+    '/campus/$slug': {
+      id: '/campus/$slug'
+      path: '/$slug'
+      fullPath: '/campus/$slug'
+      preLoaderRoute: typeof CampusSlugRouteImport
+      parentRoute: typeof CampusRoute
+    }
   }
 }
 
+interface CampusRouteChildren {
+  CampusSlugRoute: typeof CampusSlugRoute
+}
+
+const CampusRouteChildren: CampusRouteChildren = {
+  CampusSlugRoute: CampusSlugRoute,
+}
+
+const CampusRouteWithChildren =
+  CampusRoute._addFileChildren(CampusRouteChildren)
+
+interface CoursesRouteChildren {
+  CoursesSlugRoute: typeof CoursesSlugRoute
+  CoursesTeacherEduRoute: typeof CoursesTeacherEduRoute
+}
+
+const CoursesRouteChildren: CoursesRouteChildren = {
+  CoursesSlugRoute: CoursesSlugRoute,
+  CoursesTeacherEduRoute: CoursesTeacherEduRoute,
+}
+
+const CoursesRouteWithChildren =
+  CoursesRoute._addFileChildren(CoursesRouteChildren)
+
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  AboutRoute: AboutRoute,
+  AdministrationRoute: AdministrationRoute,
+  AdmissionsRoute: AdmissionsRoute,
+  AlumniRoute: AlumniRoute,
+  AntiRaggingRoute: AntiRaggingRoute,
+  CampusRoute: CampusRouteWithChildren,
+  ContactRoute: ContactRoute,
+  ConvocationRoute: ConvocationRoute,
+  CoursesRoute: CoursesRouteWithChildren,
+  DownloadsRoute: DownloadsRoute,
+  ExamScheduleRoute: ExamScheduleRoute,
+  HostelsRoute: HostelsRoute,
+  LibraryRoute: LibraryRoute,
+  LoginRoute: LoginRoute,
+  NoticesRoute: NoticesRoute,
+  NssNccRoute: NssNccRoute,
+  PlacementsRoute: PlacementsRoute,
+  ProspectusRoute: ProspectusRoute,
+  PyqsRoute: PyqsRoute,
+  RegisterRoute: RegisterRoute,
+  ResultsRoute: ResultsRoute,
+  ScholarshipRoute: ScholarshipRoute,
+  StudentsRoute: StudentsRoute,
+  WebmailRoute: WebmailRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { createStart } from '@tanstack/react-start'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+  }
+}

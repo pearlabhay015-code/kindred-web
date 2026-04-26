@@ -35,12 +35,10 @@ export const chatAsk = createServerFn({ method: "POST" })
   .handler(async ({ data }) => {
     const lower = data.message.toLowerCase();
 
-    // Persist user message (best-effort)
     await supabaseAdmin.from("chat_messages").insert({
       session_id: data.sessionId, role: "user", content: data.message,
     });
 
-    // Look up FAQ by keyword overlap
     const { data: faqs } = await supabaseAdmin
       .from("faqs")
       .select("question,answer,keywords")
@@ -59,7 +57,6 @@ export const chatAsk = createServerFn({ method: "POST" })
     if (best && best.score >= 2) {
       reply = best.answer;
     } else {
-      // Try DB search
       const search = await supabaseAdmin
         .from("notices")
         .select("title,date_label")
@@ -80,4 +77,88 @@ export const chatAsk = createServerFn({ method: "POST" })
     });
 
     return { reply };
+  });
+
+/* ─── DATA LOADERS ─── */
+export const listLeaders = createServerFn({ method: "GET" }).handler(async () => {
+  const { data } = await supabaseAdmin
+    .from("leaders")
+    .select("slug,name,role,short_note,bio,photo_url")
+    .order("sort_order", { ascending: true });
+  return data ?? [];
+});
+
+export const listSchoolsAndDepartments = createServerFn({ method: "GET" }).handler(async () => {
+  const [schoolsRes, deptsRes] = await Promise.all([
+    supabaseAdmin.from("schools").select("slug,name,short_name,icon,description").order("sort_order", { ascending: true }),
+    supabaseAdmin.from("departments").select("slug,name,school_slug,icon,description,programmes,hod,contact_email").order("name", { ascending: true }),
+  ]);
+  return { schools: schoolsRes.data ?? [], departments: deptsRes.data ?? [] };
+});
+
+export const getDepartment = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ slug: z.string().min(1).max(80) }).parse)
+  .handler(async ({ data }) => {
+    const { data: row } = await supabaseAdmin
+      .from("departments")
+      .select("slug,name,school_slug,icon,description,programmes,hod,contact_email")
+      .eq("slug", data.slug)
+      .maybeSingle();
+    return row;
+  });
+
+export const listFacilities = createServerFn({ method: "GET" }).handler(async () => {
+  const { data } = await supabaseAdmin
+    .from("facilities")
+    .select("slug,name,short_description,long_description,highlights,image_url,sort_order")
+    .order("sort_order", { ascending: true });
+  return data ?? [];
+});
+
+export const getFacility = createServerFn({ method: "GET" })
+  .inputValidator(z.object({ slug: z.string().min(1).max(80) }).parse)
+  .handler(async ({ data }) => {
+    const { data: row } = await supabaseAdmin
+      .from("facilities")
+      .select("slug,name,short_description,long_description,highlights,image_url")
+      .eq("slug", data.slug)
+      .maybeSingle();
+    return row;
+  });
+
+export const listNotices = createServerFn({ method: "GET" }).handler(async () => {
+  const { data } = await supabaseAdmin
+    .from("notices")
+    .select("id,title,body,category,date_label,notice_date,is_new,url")
+    .order("notice_date", { ascending: false, nullsFirst: false })
+    .order("created_at", { ascending: false });
+  return data ?? [];
+});
+
+export const listQuickLinks = createServerFn({ method: "GET" }).handler(async () => {
+  const { data } = await supabaseAdmin
+    .from("quick_links")
+    .select("slug,name,description,icon,url,external,category,sort_order")
+    .order("sort_order", { ascending: true });
+  return data ?? [];
+});
+
+export const sendContactMessage = createServerFn({ method: "POST" })
+  .inputValidator(
+    z.object({
+      name: z.string().trim().min(2).max(100),
+      email: z.string().trim().email().max(120),
+      subject: z.string().trim().min(2).max(160),
+      message: z.string().trim().min(10).max(2000),
+    }).parse,
+  )
+  .handler(async ({ data }) => {
+    const { error } = await supabaseAdmin.from("contact_messages").insert({
+      name: data.name,
+      email: data.email,
+      subject: data.subject,
+      message: data.message,
+    });
+    if (error) throw new Error("Could not send your message right now.");
+    return { ok: true };
   });
