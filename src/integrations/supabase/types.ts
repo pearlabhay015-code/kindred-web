@@ -14,7 +14,287 @@ export type Database = {
   }
   public: {
     Tables: {
-      [_ in never]: never
+      chat_messages: {
+        Row: {
+          content: string
+          created_at: string
+          id: string
+          role: string
+          session_id: string
+        }
+        Insert: {
+          content: string
+          created_at?: string
+          id?: string
+          role: string
+          session_id: string
+        }
+        Update: {
+          content?: string
+          created_at?: string
+          id?: string
+          role?: string
+          session_id?: string
+        }
+        Relationships: []
+      }
+      departments: {
+        Row: {
+          contact_email: string | null
+          created_at: string
+          description: string | null
+          hod: string | null
+          icon: string | null
+          id: string
+          name: string
+          programmes: string[] | null
+          school_slug: string
+          slug: string
+        }
+        Insert: {
+          contact_email?: string | null
+          created_at?: string
+          description?: string | null
+          hod?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          programmes?: string[] | null
+          school_slug: string
+          slug: string
+        }
+        Update: {
+          contact_email?: string | null
+          created_at?: string
+          description?: string | null
+          hod?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          programmes?: string[] | null
+          school_slug?: string
+          slug?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "departments_school_slug_fkey"
+            columns: ["school_slug"]
+            isOneToOne: false
+            referencedRelation: "schools"
+            referencedColumns: ["slug"]
+          },
+        ]
+      }
+      facilities: {
+        Row: {
+          created_at: string
+          highlights: string[] | null
+          id: string
+          image_url: string | null
+          long_description: string | null
+          name: string
+          short_description: string | null
+          slug: string
+          sort_order: number | null
+        }
+        Insert: {
+          created_at?: string
+          highlights?: string[] | null
+          id?: string
+          image_url?: string | null
+          long_description?: string | null
+          name: string
+          short_description?: string | null
+          slug: string
+          sort_order?: number | null
+        }
+        Update: {
+          created_at?: string
+          highlights?: string[] | null
+          id?: string
+          image_url?: string | null
+          long_description?: string | null
+          name?: string
+          short_description?: string | null
+          slug?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
+      faqs: {
+        Row: {
+          answer: string
+          category: string | null
+          created_at: string
+          id: string
+          keywords: string[]
+          question: string
+          sort_order: number | null
+        }
+        Insert: {
+          answer: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string[]
+          question: string
+          sort_order?: number | null
+        }
+        Update: {
+          answer?: string
+          category?: string | null
+          created_at?: string
+          id?: string
+          keywords?: string[]
+          question?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
+      leaders: {
+        Row: {
+          bio: string | null
+          created_at: string
+          id: string
+          name: string
+          photo_url: string | null
+          role: string
+          short_note: string | null
+          slug: string
+          sort_order: number | null
+        }
+        Insert: {
+          bio?: string | null
+          created_at?: string
+          id?: string
+          name: string
+          photo_url?: string | null
+          role: string
+          short_note?: string | null
+          slug: string
+          sort_order?: number | null
+        }
+        Update: {
+          bio?: string | null
+          created_at?: string
+          id?: string
+          name?: string
+          photo_url?: string | null
+          role?: string
+          short_note?: string | null
+          slug?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
+      notices: {
+        Row: {
+          body: string | null
+          category: string
+          created_at: string
+          date_label: string | null
+          id: string
+          is_new: boolean | null
+          notice_date: string | null
+          title: string
+          url: string | null
+        }
+        Insert: {
+          body?: string | null
+          category: string
+          created_at?: string
+          date_label?: string | null
+          id?: string
+          is_new?: boolean | null
+          notice_date?: string | null
+          title: string
+          url?: string | null
+        }
+        Update: {
+          body?: string | null
+          category?: string
+          created_at?: string
+          date_label?: string | null
+          id?: string
+          is_new?: boolean | null
+          notice_date?: string | null
+          title?: string
+          url?: string | null
+        }
+        Relationships: []
+      }
+      quick_links: {
+        Row: {
+          category: string | null
+          created_at: string
+          description: string | null
+          external: boolean | null
+          icon: string | null
+          id: string
+          name: string
+          slug: string
+          sort_order: number | null
+          url: string
+        }
+        Insert: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          external?: boolean | null
+          icon?: string | null
+          id?: string
+          name: string
+          slug: string
+          sort_order?: number | null
+          url: string
+        }
+        Update: {
+          category?: string | null
+          created_at?: string
+          description?: string | null
+          external?: boolean | null
+          icon?: string | null
+          id?: string
+          name?: string
+          slug?: string
+          sort_order?: number | null
+          url?: string
+        }
+        Relationships: []
+      }
+      schools: {
+        Row: {
+          created_at: string
+          description: string | null
+          icon: string | null
+          id: string
+          name: string
+          short_name: string | null
+          slug: string
+          sort_order: number | null
+        }
+        Insert: {
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name: string
+          short_name?: string | null
+          slug: string
+          sort_order?: number | null
+        }
+        Update: {
+          created_at?: string
+          description?: string | null
+          icon?: string | null
+          id?: string
+          name?: string
+          short_name?: string | null
+          slug?: string
+          sort_order?: number | null
+        }
+        Relationships: []
+      }
     }
     Views: {
       [_ in never]: never
