@@ -10,16 +10,26 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StudentsRouteImport } from './routes/students'
+import { Route as ScholarshipRouteImport } from './routes/scholarship'
+import { Route as ResultsRouteImport } from './routes/results'
 import { Route as RegisterRouteImport } from './routes/register'
+import { Route as PyqsRouteImport } from './routes/pyqs'
+import { Route as PlacementsRouteImport } from './routes/placements'
 import { Route as NoticesRouteImport } from './routes/notices'
 import { Route as LoginRouteImport } from './routes/login'
+import { Route as LibraryRouteImport } from './routes/library'
+import { Route as HostelsRouteImport } from './routes/hostels'
+import { Route as ExamScheduleRouteImport } from './routes/exam-schedule'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CampusRouteImport } from './routes/campus'
+import { Route as AntiRaggingRouteImport } from './routes/anti-ragging'
+import { Route as AlumniRouteImport } from './routes/alumni'
 import { Route as AdmissionsRouteImport } from './routes/admissions'
 import { Route as AdministrationRouteImport } from './routes/administration'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as CoursesTeacherEduRouteImport } from './routes/courses.teacher-edu'
 import { Route as CoursesSlugRouteImport } from './routes/courses.$slug'
 import { Route as CampusSlugRouteImport } from './routes/campus.$slug'
 
@@ -28,9 +38,29 @@ const StudentsRoute = StudentsRouteImport.update({
   path: '/students',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ScholarshipRoute = ScholarshipRouteImport.update({
+  id: '/scholarship',
+  path: '/scholarship',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ResultsRoute = ResultsRouteImport.update({
+  id: '/results',
+  path: '/results',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RegisterRoute = RegisterRouteImport.update({
   id: '/register',
   path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PyqsRoute = PyqsRouteImport.update({
+  id: '/pyqs',
+  path: '/pyqs',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const PlacementsRoute = PlacementsRouteImport.update({
+  id: '/placements',
+  path: '/placements',
   getParentRoute: () => rootRouteImport,
 } as any)
 const NoticesRoute = NoticesRouteImport.update({
@@ -41,6 +71,21 @@ const NoticesRoute = NoticesRouteImport.update({
 const LoginRoute = LoginRouteImport.update({
   id: '/login',
   path: '/login',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LibraryRoute = LibraryRouteImport.update({
+  id: '/library',
+  path: '/library',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const HostelsRoute = HostelsRouteImport.update({
+  id: '/hostels',
+  path: '/hostels',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ExamScheduleRoute = ExamScheduleRouteImport.update({
+  id: '/exam-schedule',
+  path: '/exam-schedule',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRoute = CoursesRouteImport.update({
@@ -56,6 +101,16 @@ const ContactRoute = ContactRouteImport.update({
 const CampusRoute = CampusRouteImport.update({
   id: '/campus',
   path: '/campus',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AntiRaggingRoute = AntiRaggingRouteImport.update({
+  id: '/anti-ragging',
+  path: '/anti-ragging',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const AlumniRoute = AlumniRouteImport.update({
+  id: '/alumni',
+  path: '/alumni',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AdmissionsRoute = AdmissionsRouteImport.update({
@@ -78,6 +133,11 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CoursesTeacherEduRoute = CoursesTeacherEduRouteImport.update({
+  id: '/teacher-edu',
+  path: '/teacher-edu',
+  getParentRoute: () => CoursesRoute,
+} as any)
 const CoursesSlugRoute = CoursesSlugRouteImport.update({
   id: '/$slug',
   path: '/$slug',
@@ -94,30 +154,50 @@ export interface FileRoutesByFullPath {
   '/about': typeof AboutRoute
   '/administration': typeof AdministrationRoute
   '/admissions': typeof AdmissionsRoute
+  '/alumni': typeof AlumniRoute
+  '/anti-ragging': typeof AntiRaggingRoute
   '/campus': typeof CampusRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/exam-schedule': typeof ExamScheduleRoute
+  '/hostels': typeof HostelsRoute
+  '/library': typeof LibraryRoute
   '/login': typeof LoginRoute
   '/notices': typeof NoticesRoute
+  '/placements': typeof PlacementsRoute
+  '/pyqs': typeof PyqsRoute
   '/register': typeof RegisterRoute
+  '/results': typeof ResultsRoute
+  '/scholarship': typeof ScholarshipRoute
   '/students': typeof StudentsRoute
   '/campus/$slug': typeof CampusSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/teacher-edu': typeof CoursesTeacherEduRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
   '/administration': typeof AdministrationRoute
   '/admissions': typeof AdmissionsRoute
+  '/alumni': typeof AlumniRoute
+  '/anti-ragging': typeof AntiRaggingRoute
   '/campus': typeof CampusRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/exam-schedule': typeof ExamScheduleRoute
+  '/hostels': typeof HostelsRoute
+  '/library': typeof LibraryRoute
   '/login': typeof LoginRoute
   '/notices': typeof NoticesRoute
+  '/placements': typeof PlacementsRoute
+  '/pyqs': typeof PyqsRoute
   '/register': typeof RegisterRoute
+  '/results': typeof ResultsRoute
+  '/scholarship': typeof ScholarshipRoute
   '/students': typeof StudentsRoute
   '/campus/$slug': typeof CampusSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/teacher-edu': typeof CoursesTeacherEduRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -125,15 +205,25 @@ export interface FileRoutesById {
   '/about': typeof AboutRoute
   '/administration': typeof AdministrationRoute
   '/admissions': typeof AdmissionsRoute
+  '/alumni': typeof AlumniRoute
+  '/anti-ragging': typeof AntiRaggingRoute
   '/campus': typeof CampusRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/exam-schedule': typeof ExamScheduleRoute
+  '/hostels': typeof HostelsRoute
+  '/library': typeof LibraryRoute
   '/login': typeof LoginRoute
   '/notices': typeof NoticesRoute
+  '/placements': typeof PlacementsRoute
+  '/pyqs': typeof PyqsRoute
   '/register': typeof RegisterRoute
+  '/results': typeof ResultsRoute
+  '/scholarship': typeof ScholarshipRoute
   '/students': typeof StudentsRoute
   '/campus/$slug': typeof CampusSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
+  '/courses/teacher-edu': typeof CoursesTeacherEduRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -142,45 +232,75 @@ export interface FileRouteTypes {
     | '/about'
     | '/administration'
     | '/admissions'
+    | '/alumni'
+    | '/anti-ragging'
     | '/campus'
     | '/contact'
     | '/courses'
+    | '/exam-schedule'
+    | '/hostels'
+    | '/library'
     | '/login'
     | '/notices'
+    | '/placements'
+    | '/pyqs'
     | '/register'
+    | '/results'
+    | '/scholarship'
     | '/students'
     | '/campus/$slug'
     | '/courses/$slug'
+    | '/courses/teacher-edu'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
     | '/administration'
     | '/admissions'
+    | '/alumni'
+    | '/anti-ragging'
     | '/campus'
     | '/contact'
     | '/courses'
+    | '/exam-schedule'
+    | '/hostels'
+    | '/library'
     | '/login'
     | '/notices'
+    | '/placements'
+    | '/pyqs'
     | '/register'
+    | '/results'
+    | '/scholarship'
     | '/students'
     | '/campus/$slug'
     | '/courses/$slug'
+    | '/courses/teacher-edu'
   id:
     | '__root__'
     | '/'
     | '/about'
     | '/administration'
     | '/admissions'
+    | '/alumni'
+    | '/anti-ragging'
     | '/campus'
     | '/contact'
     | '/courses'
+    | '/exam-schedule'
+    | '/hostels'
+    | '/library'
     | '/login'
     | '/notices'
+    | '/placements'
+    | '/pyqs'
     | '/register'
+    | '/results'
+    | '/scholarship'
     | '/students'
     | '/campus/$slug'
     | '/courses/$slug'
+    | '/courses/teacher-edu'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -188,12 +308,21 @@ export interface RootRouteChildren {
   AboutRoute: typeof AboutRoute
   AdministrationRoute: typeof AdministrationRoute
   AdmissionsRoute: typeof AdmissionsRoute
+  AlumniRoute: typeof AlumniRoute
+  AntiRaggingRoute: typeof AntiRaggingRoute
   CampusRoute: typeof CampusRouteWithChildren
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
+  ExamScheduleRoute: typeof ExamScheduleRoute
+  HostelsRoute: typeof HostelsRoute
+  LibraryRoute: typeof LibraryRoute
   LoginRoute: typeof LoginRoute
   NoticesRoute: typeof NoticesRoute
+  PlacementsRoute: typeof PlacementsRoute
+  PyqsRoute: typeof PyqsRoute
   RegisterRoute: typeof RegisterRoute
+  ResultsRoute: typeof ResultsRoute
+  ScholarshipRoute: typeof ScholarshipRoute
   StudentsRoute: typeof StudentsRoute
 }
 
@@ -206,11 +335,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/scholarship': {
+      id: '/scholarship'
+      path: '/scholarship'
+      fullPath: '/scholarship'
+      preLoaderRoute: typeof ScholarshipRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/results': {
+      id: '/results'
+      path: '/results'
+      fullPath: '/results'
+      preLoaderRoute: typeof ResultsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/register': {
       id: '/register'
       path: '/register'
       fullPath: '/register'
       preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/pyqs': {
+      id: '/pyqs'
+      path: '/pyqs'
+      fullPath: '/pyqs'
+      preLoaderRoute: typeof PyqsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/placements': {
+      id: '/placements'
+      path: '/placements'
+      fullPath: '/placements'
+      preLoaderRoute: typeof PlacementsRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/notices': {
@@ -225,6 +382,27 @@ declare module '@tanstack/react-router' {
       path: '/login'
       fullPath: '/login'
       preLoaderRoute: typeof LoginRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/library': {
+      id: '/library'
+      path: '/library'
+      fullPath: '/library'
+      preLoaderRoute: typeof LibraryRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/hostels': {
+      id: '/hostels'
+      path: '/hostels'
+      fullPath: '/hostels'
+      preLoaderRoute: typeof HostelsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/exam-schedule': {
+      id: '/exam-schedule'
+      path: '/exam-schedule'
+      fullPath: '/exam-schedule'
+      preLoaderRoute: typeof ExamScheduleRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses': {
@@ -246,6 +424,20 @@ declare module '@tanstack/react-router' {
       path: '/campus'
       fullPath: '/campus'
       preLoaderRoute: typeof CampusRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/anti-ragging': {
+      id: '/anti-ragging'
+      path: '/anti-ragging'
+      fullPath: '/anti-ragging'
+      preLoaderRoute: typeof AntiRaggingRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/alumni': {
+      id: '/alumni'
+      path: '/alumni'
+      fullPath: '/alumni'
+      preLoaderRoute: typeof AlumniRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/admissions': {
@@ -275,6 +467,13 @@ declare module '@tanstack/react-router' {
       fullPath: '/'
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
+    }
+    '/courses/teacher-edu': {
+      id: '/courses/teacher-edu'
+      path: '/teacher-edu'
+      fullPath: '/courses/teacher-edu'
+      preLoaderRoute: typeof CoursesTeacherEduRouteImport
+      parentRoute: typeof CoursesRoute
     }
     '/courses/$slug': {
       id: '/courses/$slug'
@@ -306,10 +505,12 @@ const CampusRouteWithChildren =
 
 interface CoursesRouteChildren {
   CoursesSlugRoute: typeof CoursesSlugRoute
+  CoursesTeacherEduRoute: typeof CoursesTeacherEduRoute
 }
 
 const CoursesRouteChildren: CoursesRouteChildren = {
   CoursesSlugRoute: CoursesSlugRoute,
+  CoursesTeacherEduRoute: CoursesTeacherEduRoute,
 }
 
 const CoursesRouteWithChildren =
@@ -320,12 +521,21 @@ const rootRouteChildren: RootRouteChildren = {
   AboutRoute: AboutRoute,
   AdministrationRoute: AdministrationRoute,
   AdmissionsRoute: AdmissionsRoute,
+  AlumniRoute: AlumniRoute,
+  AntiRaggingRoute: AntiRaggingRoute,
   CampusRoute: CampusRouteWithChildren,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
+  ExamScheduleRoute: ExamScheduleRoute,
+  HostelsRoute: HostelsRoute,
+  LibraryRoute: LibraryRoute,
   LoginRoute: LoginRoute,
   NoticesRoute: NoticesRoute,
+  PlacementsRoute: PlacementsRoute,
+  PyqsRoute: PyqsRoute,
   RegisterRoute: RegisterRoute,
+  ResultsRoute: ResultsRoute,
+  ScholarshipRoute: ScholarshipRoute,
   StudentsRoute: StudentsRoute,
 }
 export const routeTree = rootRouteImport
