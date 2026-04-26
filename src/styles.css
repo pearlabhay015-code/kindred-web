@@ -11,8 +11,8 @@
 ═══════════════════════════════════════ */
 
 @theme inline {
-  --font-display: 'Syne', 'Segoe UI', sans-serif;
-  --font-body: 'DM Sans', 'Segoe UI', sans-serif;
+  --font-display: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  --font-body: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 
   --radius-sm: 12px;
   --radius-md: 20px;
