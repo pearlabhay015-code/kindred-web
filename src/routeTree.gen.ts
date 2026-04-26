@@ -10,7 +10,9 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as StudentsRouteImport } from './routes/students'
+import { Route as RegisterRouteImport } from './routes/register'
 import { Route as NoticesRouteImport } from './routes/notices'
+import { Route as LoginRouteImport } from './routes/login'
 import { Route as CoursesRouteImport } from './routes/courses'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as CampusRouteImport } from './routes/campus'
@@ -26,9 +28,19 @@ const StudentsRoute = StudentsRouteImport.update({
   path: '/students',
   getParentRoute: () => rootRouteImport,
 } as any)
+const RegisterRoute = RegisterRouteImport.update({
+  id: '/register',
+  path: '/register',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const NoticesRoute = NoticesRouteImport.update({
   id: '/notices',
   path: '/notices',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const LoginRoute = LoginRouteImport.update({
+  id: '/login',
+  path: '/login',
   getParentRoute: () => rootRouteImport,
 } as any)
 const CoursesRoute = CoursesRouteImport.update({
@@ -85,7 +97,9 @@ export interface FileRoutesByFullPath {
   '/campus': typeof CampusRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/login': typeof LoginRoute
   '/notices': typeof NoticesRoute
+  '/register': typeof RegisterRoute
   '/students': typeof StudentsRoute
   '/campus/$slug': typeof CampusSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
@@ -98,7 +112,9 @@ export interface FileRoutesByTo {
   '/campus': typeof CampusRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/login': typeof LoginRoute
   '/notices': typeof NoticesRoute
+  '/register': typeof RegisterRoute
   '/students': typeof StudentsRoute
   '/campus/$slug': typeof CampusSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
@@ -112,7 +128,9 @@ export interface FileRoutesById {
   '/campus': typeof CampusRouteWithChildren
   '/contact': typeof ContactRoute
   '/courses': typeof CoursesRouteWithChildren
+  '/login': typeof LoginRoute
   '/notices': typeof NoticesRoute
+  '/register': typeof RegisterRoute
   '/students': typeof StudentsRoute
   '/campus/$slug': typeof CampusSlugRoute
   '/courses/$slug': typeof CoursesSlugRoute
@@ -127,7 +145,9 @@ export interface FileRouteTypes {
     | '/campus'
     | '/contact'
     | '/courses'
+    | '/login'
     | '/notices'
+    | '/register'
     | '/students'
     | '/campus/$slug'
     | '/courses/$slug'
@@ -140,7 +160,9 @@ export interface FileRouteTypes {
     | '/campus'
     | '/contact'
     | '/courses'
+    | '/login'
     | '/notices'
+    | '/register'
     | '/students'
     | '/campus/$slug'
     | '/courses/$slug'
@@ -153,7 +175,9 @@ export interface FileRouteTypes {
     | '/campus'
     | '/contact'
     | '/courses'
+    | '/login'
     | '/notices'
+    | '/register'
     | '/students'
     | '/campus/$slug'
     | '/courses/$slug'
@@ -167,7 +191,9 @@ export interface RootRouteChildren {
   CampusRoute: typeof CampusRouteWithChildren
   ContactRoute: typeof ContactRoute
   CoursesRoute: typeof CoursesRouteWithChildren
+  LoginRoute: typeof LoginRoute
   NoticesRoute: typeof NoticesRoute
+  RegisterRoute: typeof RegisterRoute
   StudentsRoute: typeof StudentsRoute
 }
 
@@ -180,11 +206,25 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof StudentsRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/register': {
+      id: '/register'
+      path: '/register'
+      fullPath: '/register'
+      preLoaderRoute: typeof RegisterRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/notices': {
       id: '/notices'
       path: '/notices'
       fullPath: '/notices'
       preLoaderRoute: typeof NoticesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/login': {
+      id: '/login'
+      path: '/login'
+      fullPath: '/login'
+      preLoaderRoute: typeof LoginRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/courses': {
@@ -283,7 +323,9 @@ const rootRouteChildren: RootRouteChildren = {
   CampusRoute: CampusRouteWithChildren,
   ContactRoute: ContactRoute,
   CoursesRoute: CoursesRouteWithChildren,
+  LoginRoute: LoginRoute,
   NoticesRoute: NoticesRoute,
+  RegisterRoute: RegisterRoute,
   StudentsRoute: StudentsRoute,
 }
 export const routeTree = rootRouteImport
