@@ -35,11 +35,15 @@ export function SiteFooter() {
         <FooterCol title="Academics" links={[
           { l: "All Departments", to: "/courses" },
           { l: "Notices", to: "/notices" },
-          { l: "Campus", to: "/campus" },
+          { l: "Exam Schedule", to: "/exam-schedule" },
+          { l: "Results", to: "/results" },
+          { l: "Library", to: "/library" },
         ]} />
         <FooterCol title="Students" links={[
           { l: "Admissions 2026–27", to: "/admissions" },
-          { l: "Quick Links", to: "/students" },
+          { l: "Scholarships", to: "/scholarship" },
+          { l: "Hostels", to: "/hostels" },
+          { l: "Anti-Ragging", to: "/anti-ragging" },
           { l: "Login", to: "/login" },
           { l: "Register", to: "/register" },
         ]} />
